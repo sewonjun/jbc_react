@@ -1,9 +1,13 @@
+import React, { Fragment } from "react";
+import Hello from "./Components/Hello";
+import Time from "./Components/Time";
+
 function App() {
   return (
-    <div className="App">
-      <h1>test2</h1>
-    </div>
+    <Fragment>
+      <Hello name="gray" />
+      <Time />
+    </Fragment>
   );
 }
-
 export default App;
