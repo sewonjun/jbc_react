@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 
 function Resume(props) {
-  const [like, setLike] = useState(0);
+  const [like, setLike] = useState(false);
+  let heart = like ? "❣️" : "";
   function clickLike() {
-    if (like === "") {
-      setLike("Like");
+    if (like === false) {
+      setLike(true);
     } else {
-      setLike("");
+      setLike(false);
     }
   }
+  // function clickLike() {
+  //   setLike(like + 1);
+  // }
   const myColor = props.color;
   const styleColor = { color: myColor };
 
@@ -22,7 +26,7 @@ function Resume(props) {
         좋아하는 색 : <span style={styleColor}>{myColor}</span>
       </h2>
       <button onClick={clickLike}>like</button>
-      <span>{like}</span>
+      <span>{heart ? heart : ""}</span>
     </div>
   );
 }
