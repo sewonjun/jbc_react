@@ -1,9 +1,14 @@
 import { useState } from "react";
 
 function Login() {
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     console.log("submit");
+    if (id === "") {
+      alert("you didnt insert id ");
+    }
   };
   const handleLoginInput = (e) => {
     console.log("id", e.target.value);
