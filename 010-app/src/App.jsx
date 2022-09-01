@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Detail from "./Components/Detail";
+import Review from "./Components/Review";
+import Question from "./Components/Question";
 
 const ContentsContainer = ({ listName }) => {
   if (listName === "detail") {
@@ -29,8 +32,27 @@ function NavBar() {
           >
             상세정보
           </li>
+          <li
+            id="qa"
+            onClick={checkId}
+            style={listName === "qa" ? { color: "red" } : { color: "black" }}
+          >
+            문의사항
+          </li>
+          <li
+            id="review"
+            onClick={checkId}
+            style={
+              listName === "review" ? { color: "red" } : { color: "black" }
+            }
+          >
+            리뷰
+          </li>
         </ul>
       </nav>
+      <ContentsContainer listName={listName} />
     </>
   );
 }
+
+export default NavBar;
