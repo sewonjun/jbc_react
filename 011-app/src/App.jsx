@@ -1,18 +1,23 @@
-import { createGlobalStyle } from "styled-components";
-
-const GlobalStyle = createGlobalStyle`
-span {
-  color: red;
-  font-size: 12px;
-}
-`;
+import React from "react";
+import Question from "./Components/Question";
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <h1>hello world1</h1>
-      <span>hello world2</span>
+      <nav className="box">
+        <ul>
+          <li id="detail" className="text">
+            상세정보
+          </li>
+          <li id="qa" className="text">
+            Q&A
+          </li>
+          <li id="review" className="text">
+            Review
+          </li>
+        </ul>
+      </nav>
+      <Question />
     </>
   );
 }
