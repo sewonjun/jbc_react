@@ -1,9 +1,15 @@
 import React from "react";
 import Question from "./Components/Question";
-
+import { createGlobalStyle } from "styled-components";
+const GlobalStyle = createGlobalStyle`
+li {
+  text-decoration:none;
+}
+`;
 function App() {
   return (
     <>
+      <GlobalStyle />
       <nav className="box">
         <ul>
           <li id="detail" className="text">
