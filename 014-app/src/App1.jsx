@@ -6,16 +6,17 @@ function Counter() {
   const countUp = () => {
     setCount(count + 1);
   };
+
   useEffect(() => {
     if (checkRender) {
       if (count % 2) {
-        alert("홀수입니다");
+        alert("홀수입니다"); //나머지가 1이면 true로 인식되니까!!! 제발 정신차려 멍청아!!
       } else {
-        alert("짝수입니다");
+        alert("짝수입니다.");
       }
     }
     setCheckRender(true);
-  }, [count]);
+  }, [count]); // count란 감시해야 할 요소
   return (
     <>
       <div>{count}</div>
@@ -29,16 +30,22 @@ function Time(props) {
   const [hour, setHour] = useState(today.getHours());
   const [min, setMin] = useState(today.getMinutes());
   const [sec, setSec] = useState(today.getSeconds());
-  console.log("렌더링이 됩니다..?"); //렌더링이 잘 되는지 확인용! 꼭 넣고 진행해주세요.
+  console.log("렌더링 됩니다"); // 렌더링 잘 되는지 확인용. 꼭 넣으시오.
 
-  setInterval(() => {
-    const t = new Date();
-    setToday(t);
-    setHour(t.getHours());
-    setMin(t.getMinutes());
-    setSec(t.getSeconds());
-  }, 1000);
-
+  useEffect(() => {
+    let time = setInterval(() => {
+      const t = new Date();
+      setToday(t);
+      setHour(t.getHours());
+      setMin(t.getMinutes());
+      setSec(t.getSeconds());
+    }, 1000);
+    return () => {
+      //여기가 cleanup 코드 부분. useEffect에 return 부분에서 cleanup해줌
+      clearInterval(time);
+      console.log("시간이 멈춥니다");
+    };
+  }, [today]);
   return (
     <div>
       <h1>
@@ -52,7 +59,7 @@ function App() {
   return (
     <div>
       <Counter />
-      {/* <Time />  스택오버플로우를 위해 막아둠  */}
+      <Time />
     </div>
   );
 }
