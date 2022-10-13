@@ -1,39 +1,69 @@
-import React, { useState, useMemo } from "react";
+import { useState, useRef, useMemo } from "react";
 
-function 부하() {
-  let s = 0;
-  for (let i = 0; i < 1000000000; i++) {
-    s += i;
-  }
-  return s;
-}
+const App = () => {
+  const inputName = useRef(null);
+  const inputId = useRef(null);
+  const [userInfo, setUserInfo] = useState([]);
+  const [name, setName] = useState("");
+  const [id, setId] = useState("");
 
-function App() {
-  const [count, setCount] = useState(0);
-  const [countTwo, setCountTwo] = useState(0);
-  const handleCountUp = (e) => {
-    setCount(count + 1);
-    console.log(count);
-  };
-  const handleCountUpTwo = (e) => {
-    setCountTwo(countTwo + 1);
-    console.log(countTwo);
+  //바뀌는 부분은 input창인데 바뀌는 부분만 렌더링 되어야 하는데 자꾸 전체 렌더링이 된다.
+  //React는 가상돔을 이용해서 필요없는 부분들은 빼버린 가상 돔을 이용해 실제 비교에 필요한 부분들만 비교한다.
+  const getNum = (li) => {
+    console.log("렌더링");
+    return li.length;
   };
 
-  console.log("렌더링! ");
-  const result = useMemo(() => {
-    return 부하();
-    //useMemo를 사용하자 up!버튼을 눌렀을시 렌더링되는 속도가 엄청 빠르다. []였을때
-  }, [countTwo]); //countTwo가 바뀌면 렌더링이 된다. [countTwo] 그래서 countTwo는 엄청 느리게 숫자가 올라간다.
+  const n = useMemo(() => getNum(userInfo), [userInfo]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // userInfo.push({});
+    const newInfo = [...userInfo, { name: name, id: id }];
+    inputName.current.value = "";
+    inputId.current.value = "";
+    inputName.current.focus();
+    setUserInfo(newInfo); // onChange 이벤트가 발생될 떄마다 상태값 변경됨
+    console.log("렌더링 3");
+  };
+
+  const handleInputName = (e) => {
+    setName(e.target.value);
+    console.log("렌더링-1");
+  };
+
+  const handleInputId = (e) => {
+    setId(e.target.value);
+    console.log("렌더링-2");
+  };
 
   return (
-    <div className="App">
-      <h1>계산결과 : {result}</h1>
-      <div>{count}</div>
-      <button onClick={handleCountUp}>up!</button>
-      <div>{countTwo}</div>
-      <button onClick={handleCountUpTwo}>up!</button>
-    </div>
+    <>
+      <form>
+        <input
+          type="text"
+          placeholder="이름을 입력하세요"
+          onChange={handleInputName}
+          ref={inputName}
+        />
+        <input
+          type="text"
+          placeholder="아이디를 입력하세요"
+          onChange={handleInputId}
+          ref={inputId}
+        />
+        <button onClick={handleSubmit}>버튼</button>
+      </form>
+      <ul>
+        {userInfo.map((value, index) => (
+          <li key={index}>
+            <h3>{value.name}</h3>
+            <strong>@{value.id}</strong>
+          </li>
+        ))}
+      </ul>
+      <span>{n}</span>
+    </>
   );
-}
+};
 export default App;
