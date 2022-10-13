@@ -18,7 +18,9 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // userInfo.push({});
+    // userInfo.push({name:inputName.current.value, id: inputId.current.value});
+    //push가 배열에 추가하는 것이라.. userInfo에서 참조하는 배열의 주소는 바뀌지 않는다. 고로 주소값이 변경되지 않아서 렌더링되지 않는다..
+    //그래서 새로운 배열을 만들어서 = newInfo setUserInfo에 전달해줘야 한다.
     const newInfo = [...userInfo, { name: name, id: id }];
     inputName.current.value = "";
     inputId.current.value = "";
