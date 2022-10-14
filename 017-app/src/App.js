@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext } from "react";
 
-function App() {
+const UserInfo = createContext({ name: "gray", id: "grayIsfree" });
+
+const App = () => {
+  return <HelloLicat />;
+};
+
+const HelloLicat = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserInfo.Consumer>
+      {(value) => (
+        <div>
+          <h2>{value.id}</h2>
+          <strong>{value.name}</strong>
+          <HelloLicatTwo />
+        </div>
+      )}
+    </UserInfo.Consumer>
   );
-}
+};
+
+const HelloLicatTwo = () => {
+  return (
+    <UserInfo.Consumer>
+      {(value) => (
+        <div>
+          <h2>Two : {value.name}</h2>
+          <strong>Two : {value.id}</strong>
+        </div>
+      )}
+    </UserInfo.Consumer>
+  );
+};
 
 export default App;
