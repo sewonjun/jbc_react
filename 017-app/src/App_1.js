@@ -10,7 +10,7 @@ const HelloLicat = ({ name, id }) => {
     <div>
       <h2>{id}</h2>
       <strong>{name}</strong>
-      {/* 당연히 props를 전달하기 위해서 여기다가 다시 명시를 해줘야 한다.  */}
+      {/* 당연히 props를 전달하기 위해서 여기다가 다시 명시를 해줘야 한다. */}
       <HelloLicatTwo name={name} id={id} />
     </div>
   );

@@ -1,35 +1,20 @@
-import React, { createContext } from "react";
+import React, { useContext, createContext } from "react";
+import HelloLicatTwo from "./HelloLicatTwo";
 
-const UserInfo = createContext({ name: "gray", id: "grayIsfree" });
+const UserInfo = createContext({ name: "lusia", id: "lusiaIsfree" });
 
 const App = () => {
   return <HelloLicat />;
 };
 
 const HelloLicat = () => {
+  const { name, id } = useContext(UserInfo);
   return (
-    <UserInfo.Consumer>
-      {(value) => (
-        <div>
-          <h2>{value.id}</h2>
-          <strong>{value.name}</strong>
-          <HelloLicatTwo />
-        </div>
-      )}
-    </UserInfo.Consumer>
-  );
-};
-
-const HelloLicatTwo = () => {
-  return (
-    <UserInfo.Consumer>
-      {(value) => (
-        <div>
-          <h2>Two : {value.name}</h2>
-          <strong>Two : {value.id}</strong>
-        </div>
-      )}
-    </UserInfo.Consumer>
+    <div>
+      <h2>{name}</h2>
+      <strong>{id}</strong>
+      <HelloLicatTwo />
+    </div>
   );
 };
 
