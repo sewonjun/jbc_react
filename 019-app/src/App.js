@@ -1,25 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useLayoutEffect, useState } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [num, setNum] = useState(0);
+
+  const handleonClick = () => {
+    setNum(num + 1);
+  };
+
+  useLayoutEffect(() => {
+    console.log("useLayoutEffect 1");
+    return () => {
+      console.log("useLayoutEffect return_1");
+    };
+  }, []);
+
+  useLayoutEffect(() => {
+    console.log("useLayoutEffect 2");
+    return () => {
+      console.log("useLayoutEffect return_2");
+    };
+  });
+
+  useLayoutEffect(() => {
+    console.log("useLayoutEffect 3");
+    return () => {
+      console.log("useLayoutEffect return_3");
+    };
+  }, [num]);
+
+  useEffect(() => {
+    console.log("useEffect 1");
+    return () => {
+      console.log("useEffect return_1");
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("useEffect 2");
+    return () => {
+      console.log("useEffect return_2");
+    };
+  });
+
+  useEffect(() => {
+    console.log("useEffect 3");
+    return () => {
+      console.log("useEffect return_3");
+    };
+  }, [num]);
+
+  return <button onClick={handleonClick}>{num}</button>;
 }
 
-export default App;
+const Wrap = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const handleClick = () => setIsVisible(!isVisible);
+  return (
+    <>
+      <button onClick={handleClick}>
+        {isVisible ? "언마운트시키기" : "마운트시키기"}
+      </button>
+      <br></br>
+      {isVisible && <App />}
+    </>
+  );
+};
+
+export default Wrap;
