@@ -32,18 +32,22 @@
             return newState;
         }
         // Redux는 cdn으로 생깁니다.
+
+        //store는 저장하고 싶은 사용자의 상태를 저장한다. 한개의 프로젝트 당 하나의 store를 가질 수 있다. 
         var store = Redux.createStore(
             reducer,
             window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // redux dev tools를 사용하기 위한 코드
         );
         function red() {
+            //렌더 만들기 -> 실제 화면에 뿌려주는 역할. store.getState()를 통해 데이터를 받아야 한다. 
             var state = store.getState();
-            //type은 반드시 있어야 합니다.
+
             // 바뀔 때마다 console에 store.getState()를 실행해보세요.
             document.querySelector('#red').innerHTML = `
                 <div class="container" id="component_red" style="background-color:${state.color}">
                         <h1>red</h1>
                         <input type="button" value="fire" onclick="
+                        //type은 반드시 있어야 합니다.
                             store.dispatch({type:'CHANGE_COLOR', color:'red'});
                         ">
                 </div>
@@ -74,6 +78,7 @@
                     <h1>green</h1>
                     <input type="button" value="fire" onclick="
                         store.dispatch({type:'CHANGE_COLOR', color:'green'});
+                        // dispath 안에 내용은 주문서. 
                     ">
                 </div>
             `;
