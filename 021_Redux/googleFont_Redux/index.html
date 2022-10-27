@@ -17,7 +17,7 @@
 
 <body>
     <div>
-        <input type="text" id="inputText" placeholder="insert something">
+        <input type="text" id="inputText">
         <input type="button" value="click me" onclick="
         const value = document.getElementById('inputText').value
         store.dispatch({type:'TEXT', text:value})" />
@@ -53,7 +53,7 @@
             } else if (action.type === "TEXT") {
                 return {
                     ...state,
-                    test: action.text
+                    text: action.text
                 }
             } else if (action.type === 'STYLE_BORDER') {
                 return {
