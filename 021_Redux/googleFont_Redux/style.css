@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  border: 5px solid black;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.item {
+  border: 5px solid #f6866a;
+  height: 100px;
+  padding: 20px;
+  font-size: 32px;
+}
+
+.item:nth-child(1) {
+  font-family: "Black Han Sans", sans-serif;
+}
+
+.item:nth-child(2) {
+  font-family: "East Sea Dokdo", cursive;
+}
+
+.item:nth-child(3) {
+  font-family: "Hi Melody", cursive;
+}
+
+.item:nth-child(4) {
+  font-family: "Nanum Myeongjo", serif;
+}
+
+.item:nth-child(5) {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.item:nth-child(6) {
+  font-family: "Song Myung", serif;
+}
