@@ -4,7 +4,7 @@ const plus = document.getElementById("plus");
 const minus = document.getElementById("minus");
 const number = document.getElementById("number");
 const quantity = document.getElementById("quantity");
-const totalPrice = document.getElementById("totalPrice");
+const totalPrice = document.getElementById("total");
 
 const PRICE = 17500;
 

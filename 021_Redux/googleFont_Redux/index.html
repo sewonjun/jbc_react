@@ -21,6 +21,7 @@
         <input type="button" value="click me" onclick="
         const value = document.getElementById('inputText').value
         store.dispatch({type:'TEXT', text:value})" />
+        <!-- 여기서 onClick으로 dispatch를 주고 밑에서 action type ===??? 으로 주문을 확인한다. -->
         <input type="button" value="Rounded!" onclick="store.dispatch({type:'STYLE_BORDER', borderRadius: '10px' })" />
         <input type="button" value="Rect!" onclick="store.dispatch({type:'STYLE_BORDER', borderRadius:'0px'})">
         <input type="button" value="Red!" onclick="store.dispatch({type:'STYLE_BORDER_COLOR', border:'5px solid red'})">
@@ -40,7 +41,7 @@
     </div>
 
     <script>
-        const store = Redux.createStore(reducer)
+        const store = Redux.createStore(reducer) // 이거 필수 문법.. 
         function reducer(state, action) {
             console.log(state, action)
             if (state === undefined) {
