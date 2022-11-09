@@ -9,8 +9,8 @@ export const substractNumber = () => {
 
 //초기 값
 const initialState = {
-  stock: 100,
-  goods: 1,
+  stock: 10,
+  goods: 0,
 };
 
 //리듀서 -> 바리스타
