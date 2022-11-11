@@ -12,13 +12,16 @@ function StockCounter() {
     stock: state.goodsReducer.stock,
   }));
   console.log(message);
-  //useDispatch : store의
+  //useDispatch : store의~~
   const dispatch = useDispatch();
   const onSoldOut = () => dispatch(soldout());
   const onSale = () => dispatch(sale());
   useEffect(() => {
     if (stock <= 0) {
       onSoldOut();
+      alert("no more plus");
+    } else if (stock > 10) {
+      alert("no more plus");
     } else {
       onSale();
     }

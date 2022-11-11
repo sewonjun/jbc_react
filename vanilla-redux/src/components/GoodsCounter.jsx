@@ -22,7 +22,7 @@ function GoodsCounter() {
         <strong>17,500</strong>원
       </span>
       <div>
-        <button type="button" onClick={onSubstractNumber}>
+        <button id="minusBtn" type="button" onClick={onSubstractNumber}>
           MINUS
         </button>
         <span>{goods}</span>
