@@ -4,20 +4,16 @@ import ProductName from "../ProductName/ProductName";
 import ProductPrice from "../ProductPrice/ProductPrice";
 import "./productCard.css";
 
-export default function ProductCard(productName, price, thumbnailImg) {
-  console.log({ productName });
+export default function ProductCard({ productName, price, img }) {
   return (
     <li className="product-item">
       <div className="product-img">
-        <ProductImage
-          thumbnailImg={productName.thumbnailImg}
-          productName={productName.productName}
-        />
+        <ProductImage thumbnailImg={img} productName={productName} />
       </div>
-      <ProductName productName={productName.productName} />
+      <ProductName productNames={productName} />
       <button className="like-btn"></button>
       <div className="product-price">
-        <ProductPrice price={productName.price} />
+        <ProductPrice price={price} />
       </div>
     </li>
   );

@@ -4,7 +4,6 @@ import "./homePage.css";
 import ProductCard from "../../components/ProductCard/ProductCard";
 
 export default function HomePage() {
-  console.log(data);
   return (
     <main className="product">
       <ul className="product-list">
@@ -12,8 +11,8 @@ export default function HomePage() {
           <ProductCard
             key={item.id}
             productName={item.productName}
-            price={item.productPrice}
-            thumbnailImg={item.thumbnailImg}
+            price={item.price}
+            img={item.thumbnailImg}
           />
         ))}
       </ul>
