@@ -16,9 +16,7 @@ export default function HomePage() {
           />
         ))}
       </ul>
-      {/* <a className="link-btn cart-link" href="#">
-        hello
-      </a> */}
+      <a className="link-btn cart-link" href="#"></a>
     </main>
   );
 }
