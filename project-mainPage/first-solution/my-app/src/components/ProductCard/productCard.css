@@ -45,3 +45,21 @@
 .like-btn.on {
   background: url(../../assets/icon-heart-on.svg) no-repeat center / contain;
 }
+
+.product .product-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.product .product-item .product-name {
+  width: 338px;
+  margin: 20px 0 10px;
+}
+
+.product .product-item .like-btn {
+  position: absolute;
+  right: 0;
+  bottom: 40px;
+}

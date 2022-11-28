@@ -1,5 +1,6 @@
 import React from "react";
+import "./productPrice.css";
 
 export default function ProductPrice({ price }) {
-  return <div className="price">{price}</div>;
+  return <strong className="price m-price">{price}</strong>;
 }
