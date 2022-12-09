@@ -1,14 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserContext from "./context/UserContext";
 import BlogDetail from "./pages/BlogDetail/BlogDetail";
 import Home from "./pages/Home/Home";
-import data from "./data/data.json";
+// import data from "./data/data.json";
 
 export default function App() {
   const [userId, setUserId] = useState(0);
   const [isLogin, setIsLogin] = useState(true);
-  console.log({ data });
+  // console.log({ data });
   return (
     <UserContext.Provider value={{ userId, isLogin }}>
       <BrowserRouter>
