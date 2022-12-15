@@ -1,5 +1,9 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
+import Header from "../../components/header/Header";
+import Banner from "../../components/banner/Banner";
+import Main from "../../components/main/Main";
+import Footer from "../../components/footer/Footer";
 import "./home.css";
 
 export default function Home() {
@@ -10,13 +14,17 @@ export default function Home() {
       setPosts(json.data);
     });
   }, []);
-  console.log(posts);
+  // console.log(posts);
   return (
-    <div>
-      Home
-      {posts.map((post) => (
+    <Fragment>
+      <Header />
+      <Banner />
+      <Main posts={posts} />
+      {/* {posts.map((post) => (
         <h2 key={post.id}>{post.title}</h2>
-      ))}
-    </div>
+      ))} */}
+      {/* posts들이 제대로 들어오는지 확인하는 코드 */}
+      <Footer />
+    </Fragment>
   );
 }

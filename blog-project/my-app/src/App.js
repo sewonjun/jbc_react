@@ -7,7 +7,7 @@ import Home from "./pages/Home/Home";
 
 export default function App() {
   const [userId, setUserId] = useState(0);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   // console.log({ data });
   return (
     <UserContext.Provider value={{ userId, isLogin }}>
