@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import UserContext from "../../context/UserContext";
 import Category from "./category/Category";
 import Author from "./author/Author";
+import About from "./about/About";
 
 export default function Main() {
+  const { isLogin } = useContext(UserContext);
   const [posts, setPosts] = useState();
 
   useEffect(() => {
@@ -41,6 +44,7 @@ export default function Main() {
               </li>
             ))}
           </ul>
+          <About />
         </div>
       ) : null}
     </>

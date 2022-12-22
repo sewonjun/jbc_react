@@ -6,7 +6,7 @@ import Home from "./pages/Home/Home";
 // import data from "./data/data.json";
 
 export default function App() {
-  const [userId, setUserId] = useState(0);
+  const [userId, setUserId] = useState(2);
   const [isLogin, setIsLogin] = useState(false);
   // console.log({ data });
   return (
