@@ -6,6 +6,7 @@ import imgFacebook from "../../../assets/Facebook.svg";
 import imgTwitter from "../../../assets/Twitter.svg";
 import imgInstagram from "../../../assets/Instagram.svg";
 import imgGitHub from "../../../assets/Github.svg";
+import "./about.css";
 
 export default function About() {
   const { userId } = useContext(UserContext);
@@ -28,7 +29,7 @@ export default function About() {
       {userData !== undefined ? (
         <aside className="about">
           <h2>about Me</h2>
-          <img src="./images/profile.jpg" alt="" className="user-profile" />
+          <img src={userData.profileImg} alt="" className="user-profile" />
           <p className="user-name">{userData.name}</p>
           <p className="user-description">{userData.info}</p>
           <h3>Categories</h3>

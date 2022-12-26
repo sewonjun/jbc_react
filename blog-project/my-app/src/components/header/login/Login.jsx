@@ -1,11 +1,12 @@
-import React from "react";
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import imgProfile from "../../../assets/profile.jpg";
 import imgIconModifyWhite from "../../../assets/icon-modify-white.svg";
 import iconLogout from "../../../assets/icon-logout.svg";
+import "./login.css";
 export default function Login() {
   return (
-    <>
+    <Fragment>
       <li className="profile-img">
         <Link to="#">
           <img src={imgProfile} alt="My Page" />
@@ -23,6 +24,6 @@ export default function Login() {
           <span>Logout</span>
         </button>
       </li>
-    </>
+    </Fragment>
   );
 }

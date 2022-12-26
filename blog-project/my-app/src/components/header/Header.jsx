@@ -6,18 +6,22 @@ import Login from "../header/login/Login";
 import Logout from "../header/logout/Logout";
 import { useContext } from "react";
 import UserContext from "../../context/UserContext";
+import "./button.css";
+import "./header.css";
 
 export default function Header() {
   const { isLogin } = useContext(UserContext);
   // console.log(isLogin);
   return (
-    <div className="max-width">
-      <h1>
-        <Link to="/">
-          <img src={imgLogo} alt="My Blog" />
-        </Link>
-      </h1>
-      <ul>{isLogin ? <Login /> : <Logout />}</ul>
-    </div>
+    <header>
+      <div className="max-width">
+        <h1>
+          <Link to="/">
+            <img src={imgLogo} alt="My Blog" />
+          </Link>
+        </h1>
+        <ul>{isLogin ? <Login /> : <Logout />}</ul>
+      </div>
+    </header>
   );
 }

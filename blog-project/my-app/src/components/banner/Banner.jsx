@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import "./banner.css";
 
 export default function Banner() {
   const [blogInfo, setBlogInfo] = useState(undefined);
